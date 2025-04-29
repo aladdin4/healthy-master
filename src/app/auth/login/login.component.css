@@ -1,0 +1,55 @@
+.flex-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.main-title {
+  font-size: calc(1.28125rem + 0.375vw);
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.sub-title {
+  color: rgba(82, 91, 117, 1);
+}
+
+.form-label {
+  padding-left: 1rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  font-size: 0.64rem;
+  font-weight: 600;
+  color: #525b75;
+}
+
+.form-icon-container {
+  position: relative;
+}
+
+  .form-icon-container .form-icon-input,
+  .form-icon-container .form-icon-label {
+    padding-left: 2.5rem;
+  }
+
+  .form-icon-container .form-icon {
+    position: absolute;
+    top: 9px;
+    left: 1rem;
+  }
+
+.icon {
+  color: rgba(49, 55, 74, 1);
+}
+
+::placeholder {
+  color: #9fa6bc;
+}
+
+.mb-7 {
+  margin-bottom: 3rem !important;
+}

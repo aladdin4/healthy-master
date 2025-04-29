@@ -1,0 +1,172 @@
+.navbar-toggler-humburger-icon {
+  height: 2.25rem;
+  width: 2.25rem;
+  padding: 0.3125rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 0;
+  margin-left: 0.6125rem;
+}
+
+  .navbar-toggler-humburger-icon:hover,
+  .navbar-toggler-humburger-icon:focus {
+    background-color: #cbd0dd;
+  }
+
+
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: none;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .expand-width {
+    width: 100% !important;
+    height: calc(100vh - 4rem);
+  }
+
+    .expand-width .collapse {
+      display: flex !important;
+    }
+}
+
+.nav-link-text,
+.nav-menu-label,
+#nav-menu-li {
+  font-size: 0.9rem;
+}
+
+.navbar-vertical-label {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.64rem;
+  color: #6e7891;
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
+  padding-right: 2rem;
+  margin-left: 2rem;
+}
+
+.setting-btn {
+  padding: 1rem 0rem;
+  width: 3.3rem;
+  display: flex;
+  border: 1px solid #6c757d80;
+  background: #f8f9fa;
+  border-radius: 32px;
+  color: #3e465b;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.user {
+  margin-top: 0px !important;
+  top: 72px !important;
+  left: -10.3rem;
+  height: unset;
+  padding-bottom: 0px;
+}
+
+  .user .navbar-collapsed-ul:before {
+    width: 1.5rem;
+    height: 1.5rem;
+    top: -0.8rem;
+    left: 179px;
+    transform: rotate(135deg);
+  }
+
+  .user .navbar-collapsed-ul {
+    margin-left: 0px !important;
+  }
+
+.user-title {
+  display: flex;
+  justify-content: space-around;
+  color: #141824;
+  font-size: 1.1rem;
+  padding: 1rem 0.7rem;
+  border-color: #e3e6ed !important;
+  margin-bottom: 0px;
+}
+
+.settings-li:hover {
+  background-color: #eff2f6;
+  cursor: pointer;
+}
+.dropdown-indicator-icon {
+ color: #8a94ad  !important
+}
+
+.today-wrapper {
+  /*height: 3.7rem;*/
+  overflow: hidden;
+}
+.collapsed.today-wrapper {
+  overflow: hidden;
+  height: 1px;
+}
+
+
+.jobs-expanded {
+  height: 8.5rem !important;
+}
+.jobs-dashboard-expanded {
+  height: 12.5rem !important;
+}
+.dashboard-expanded {
+  height: 3.5rem !important;
+}
+.settings-expanded {
+  height: 2rem !important;
+}
+.logs-expanded {
+  height: 25rem;
+  overflow: auto;
+}
+.solution-expanded {
+  height: 2rem;
+  overflow: auto;
+}
+.storage-expanded {
+  height: 2rem;
+  overflow: auto;
+}
+.stage-expanded {
+  height: 2rem;
+}
+.small-panel {
+  height: 2rem;
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+}
+
+.collapse-small-panel {
+  height: 1px;
+  overflow: hidden;
+}
+.icon-indicator-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  
+  top: 3.5px;
+  height: 1rem;
+  width: 1rem;
+  font-size: .8rem;
+  color: #fff;
+  font-weight: 700;
+  background: red;
+  border-radius: 10px;
+}

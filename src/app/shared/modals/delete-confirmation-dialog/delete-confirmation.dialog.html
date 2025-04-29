@@ -1,0 +1,16 @@
+<h1 mat-dialog-title class="modal-title">{{data.title}}</h1>
+<mat-divider></mat-divider>
+
+<div mat-dialog-content>
+    <p style="color: black">
+        {{data.message}}
+    </p>
+
+</div>
+
+<div class="modal-footer">
+  <button style="margin: 4px;" class="modal-secondary-btn" (click)="onNoClick()">Cancel</button>
+  <button *ngIf="!data.notError" style="margin: 4px;" [ngClass]="{'modal-primary-btn': data.primaryBtn, 'modal-danger-btn': !data.primaryBtn}" class="btn" type="submit" (click)="onYesClick()">
+    {{data.btnText ? data.btnText : 'Delete' }}
+  </button>
+</div>

@@ -1,0 +1,149 @@
+<div class="content">
+    <div class="px-4 px-lg-6 border-x border-300" style="padding: 0px !important">
+        <div>
+            <div class="video-banner">
+                <video #videoElement autoplay muted loop playsinline preload="auto" class="video-bg">
+                    <source src="assets/into-Vid.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+                <!-- <video autoplay muted loop playsinline preload="auto" class="video-bg">
+                    <source src="assets/into-Vid.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+                <video autoplay muted loop playsinline class="video-bg">
+                    <source src="assets/into-Vid.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video> -->
+
+                <div class="banner-content">
+                    <div style=" text-shadow: 0 4px 25px rgba(0, 0, 0, .25);  font-size: 3.75rem; line-height: 1; " class="limelight-regular">
+                        <h1 class=" limelight-regular my-h1">Healthy</h1>
+                        <p class=" limelight-regular">Your inspiring healthy food store.</p>
+                    </div>
+
+                    <button class="btn-secondary-mod limelight-regular" style="width: 10rem; height: 3rem;" [routerLink]="['/dashboard/products']">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+            <div class="limelight-regular my-h1 py-5 side-title ">
+                ORDER BY 1PM THURSDAY
+            </div>
+            <div class="row g-3 justify-content-between align-items-end mb-4">
+                <div class="boxes-container">
+                    <div class="">
+                        <div class="border p-15 radius-5 inner-container">
+                            <div class="icon-center">
+                                <svg viewBox="0 0 32 32" width="30" fill="none">
+                                    <path d="M20.249 15.55v-4.575L8.386 4.125" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M2.962 8.3 14 14.687l10.962-6.35M14 26.013V14.675" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M11.412 2.1 4.737 5.813c-1.512.837-2.75 2.937-2.75 4.662v7.063c0 1.724 1.238 3.825 2.75 4.662l6.675 3.713c1.425.787 3.763.787 5.188 0l6.675-3.713c1.512-.837 2.75-2.938 2.75-4.662v-7.063c0-1.725-1.238-3.825-2.75-4.662L16.6 2.1c-1.438-.8-3.763-.8-5.188 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
+                            <div class="text-center word-break">
+                                <h3 class="mt-0 fs-custom mb-custom heading_weight fw-bold">
+                                    Free Shipping
+                                </h3>
+                                <div class="sec__icon-box-content-des rich__text-m0 fs-custom body_weight" style="--font-size: 15">
+                                    <p> Free shipping for orders over 1000 EGP within Cairo and Giza</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outer-container">
+                        <div class="align-center border p-15 radius-5 inner-container">
+                            <div class="icon-center">
+                                <svg viewBox="0 0 32 32" width="30" fill="none">
+                                    <path d="M22.475 13.488v5c0 .325-.013.637-.05.937-.288 3.375-2.275 5.05-5.938 5.05h-.5c-.312 0-.612.15-.8.4l-1.5 2c-.662.887-1.737.887-2.4 0l-1.5-2c-.162-.212-.525-.4-.8-.4h-.5c-3.987 0-5.987-.988-5.987-5.988v-5c0-3.662 1.688-5.65 5.05-5.937.3-.037.613-.05.938-.05h8c3.987 0 5.987 2 5.987 5.988Z" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M27.475 8.488v5c0 3.675-1.688 5.65-5.05 5.937.037-.3.05-.613.05-.938v-5c0-3.987-2-5.987-5.988-5.987h-8c-.325 0-.637.013-.937.05.287-3.362 2.275-5.05 5.937-5.05h8c3.988 0 5.988 2 5.988 5.988Z" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M16.87 16.563h.01M12.494 16.563h.012M8.12 16.563h.01" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
+                            <div class="text-center word-break">
+                                <h3 class="mt-0 heading_weight fw-bold">
+                                    Customer Service
+                                </h3>
+                                <div class="body_weight">
+                                    <p style="text-align:left;direction:ltr"> Customer Support 10am-10pm Order by Phone-WhatsApp</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outer-container">
+                        <div class="flex flex-column align-center gap-custom align-center border p-15 radius-5 inner-container">
+                            <div class="icon-center">
+                                <svg viewBox="0 0 32 32" fill="none" width="30">
+                                    <path d="m10.5 15 3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M13.4 3c.9-.7 2.3-.7 3.2 0l2 1.8q.6.5 1.5.6h2.2c1.3 0 2.4 1 2.4 2.4v2q0 1 .6 1.7l1.7 2c.7.8.7 2.2 0 3l-1.7 2q-.6.7-.6 1.6v2.2c0 1.3-1.1 2.4-2.4 2.4H20c-.4 0-1.2.2-1.5.6l-2 1.7c-.9.7-2.3.7-3.2 0l-2-1.7q-.6-.6-1.5-.6H7.7a2.4 2.4 0 0 1-2.4-2.4V20q0-.9-.6-1.5l-1.6-2c-.8-.9-.8-2.3 0-3.2l1.6-2q.6-.6.6-1.5v-2c0-1.4 1.1-2.5 2.4-2.5H10q.9 0 1.6-.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
+                            <div class="text-center word-break">
+                                <h3 class="mt-0 fs-custom heading_weight fw-bold">
+                                    Same day delivery
+                                </h3>
+                                <div class="fs-custom body_weight">
+                                    <p>For orders before 2 PM in Cairo and Giza</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outer-container">
+                        <div class="flex flex-column align-center align-center border p-15 radius-5 inner-container">
+                            <div class="icon-center">
+                                <svg width="30" height="30" fill="none">
+                                    <g stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-miterlimit="10" d="M4.912 19.85 19.85 4.911M13.877 22.849l1.5-1.5M17.242 19.486l2.988-2.988"></path><path d="m4.502 12.799 8.3-8.3c2.65-2.65 3.975-2.663 6.6-.038l6.137 6.138c2.625 2.625 2.613 3.95-.037 6.6l-8.3 8.3c-2.65 2.65-3.975 2.662-6.6.037L4.464 19.4c-2.625-2.625-2.625-3.938.038-6.6ZM2.5 27.498h25"></path></g>
+                                </svg>
+                            </div>
+                            <div class="text-center word-break">
+
+                                <h3 class="mt-0 fs-custom mb-custom heading_weight fw-bold">
+                                    Payment methods
+                                </h3>
+                                <div class="body_weight">
+                                    <p style="text-align:left;direction:ltr"> Payment is available in cash, Visa or online</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3 justify-content-between align-items-end mb-4" style="display: flex; justify-content: center !important;">
+                <img class="banner" src="assets/banner-2.png" alt="logo" width="200" style="width: 75%; cursor: pointer" [routerLink]="['/dashboard/products']" />
+                <div class="limelight-regular my-h1 py-5 side-title " style="color: #8ac6fa;">
+                    The Best Plant-Based Ice Cream
+                </div>
+            </div>
+            <div class="row g-3 justify-content-between align-items-end mb-4" style="display: flex; justify-content: center !important;">
+                <img class="banner" src="assets/banner-GIF_2.gif" alt="logo" width="200" style="width: 52rem; height: 50%;max-height: 50%; height: 56rem; overflow: hidden; cursor: pointer" [routerLink]="['/dashboard/products']" />
+                <div class="limelight-regular my-h1 py-5 side-title " style="color: #ffa541;">
+                    Join our community for recipes
+                </div>
+            </div>
+            <div class="g-3 img-4-container">
+                <div class="img-container" (click)="increaseVoteCount('Keto Food')">
+                    <img class="banner" src="assets/keto-food-vote-1.jpeg" alt="logo" width="300" />
+                    <h3 class="mt-0 fs-custom mb-custom heading_weight fw-bold pic-voite-title limelight-regular">Keto Food <span class="Schoolbell-regular" style="color: red">({{voteCategories['Keto Food']}})</span> </h3>
+                </div>
+                <div class="img-container" (click)="increaseVoteCount('Vegan')">
+                    <img class="banner" src="assets/vegan-vote-1.jpg" alt="logo" width="300" />
+                    <h3 class="mt-0 fs-custom mb-custom heading_weight fw-bold pic-voite-title limelight-regular">Vegan <span class="Schoolbell-regular" style="color: red">({{voteCategories['Vegan']}})</span> </h3>
+                </div>
+                <div class="img-container" (click)="increaseVoteCount('Smoothie')">
+                    <img class="banner" src="assets/smoothie-vote-1.png" alt="logo" width="300" />
+                    <h3 class="mt-0 fs-custom mb-custom heading_weight fw-bold pic-voite-title limelight-regular">Smoothie <span class="Schoolbell-regular" style="color: red">({{voteCategories['Smoothie']}})</span> </h3>
+                </div>
+                <div class="img-container" >
+                    <img class="banner" src="assets/healthy-sweet-vote.jpg" alt="logo" width="300" (click)="increaseVoteCount( 'Healthy Sweets')" />
+                    <h3 class="mt-0 fs-custom mb-custom heading_weight fw-bold pic-voite-title limelight-regular">Healthy Sweets <span class="Schoolbell-regular" style="color: red">({{voteCategories['Healthy Sweets']}})</span> </h3>
+                </div>
+            </div>
+            <div class="Schoolbell-regular my-h1 py-5 side-title fw-bold" style="color: #635861; font-size: 2rem;text-shadow: 0 4px 25px rgba(0, 0, 0, .10);">
+                Vote for the best products, Winner Product will have 50% off on the next order
+            </div>
+            <app-footer></app-footer>
+        </div>
+    </div>
+</div>
+
+
+                           

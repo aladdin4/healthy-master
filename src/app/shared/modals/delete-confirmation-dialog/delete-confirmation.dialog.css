@@ -1,0 +1,31 @@
+.modal-title {
+    font-size: 1.25rem;
+    color: #3e465b;
+}
+
+.form-label {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #525b75;
+}
+
+.modal-footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: calc(1rem - 0.5rem * 0.5);
+    border-top: 1px solid #e3e6ed;
+    border-bottom-left-radius: calc(0.375rem - 1px);
+    border-bottom-right-radius: calc(0.375rem - 1px);
+}

@@ -1,0 +1,62 @@
+<h1 mat-dialog-title class="modal-title">{{product.product_code ? "Edit" : "Add New"}} Product</h1>
+<mat-divider></mat-divider>
+
+<div mat-dialog-content>
+  <form [formGroup]="addEditProductForm" (submit)="saveProduct()">
+    <div class="mb-3">
+      <label class="form-label" for="product_name">
+        Product Name*
+      </label>
+      <input class="form-control" type="text" formControlName="product_name" />
+      <mat-error *ngIf="addEditProductForm.get('product_name')?.invalid && addEditProductForm.get('product_name')?.touched">please enter valid Product Name</mat-error>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="product_nutrition_info">
+        Nutrition Info*
+      </label>
+      <input class="form-control" type="text" formControlName="product_nutrition_info" />
+      <mat-error *ngIf="addEditProductForm.get('product_nutrition_info')?.invalid && addEditProductForm.get('product_nutrition_info')?.touched">please enter valid Nutrition Info</mat-error>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="product_ingredients">
+        Ingredients*
+      </label>
+      <input class="form-control" type="text" formControlName="product_ingredients" />
+      <mat-error *ngIf="addEditProductForm.get('product_ingredients')?.invalid && addEditProductForm.get('product_ingredients')?.touched">please enter valid Ingredients</mat-error>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="price">
+        Price*
+      </label>
+      <input class="form-control" type="number" formControlName="price" />
+      <mat-error *ngIf="addEditProductForm.get('price')?.invalid && addEditProductForm.get('price')?.touched">please enter valid Price</mat-error>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="category"> Category* </label>
+      <select class="form-control" formControlName="category">
+        <option *ngFor="let category of categories" [value]="category.id"> {{ category.category_title }} </option>
+      </select>
+      <mat-error *ngIf="addEditProductForm.get('category')?.invalid && addEditProductForm.get('category')?.touched"> please enter valid Category </mat-error>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="image">
+        Upload Image*
+      </label>
+      <input type="file" class="form-control" id="image" (change)="onFileChange($event)" />
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button style="margin: 4px" class="modal-secondary-btn" (click)="onNoClick()">
+    Close
+  </button>
+  <button style="margin: 4px" class="modal-primary-btn" [disabled]="addEditProductForm.invalid || saving.isSaving" (click)="saveProduct()">
+    Save
+  </button>
+</div>

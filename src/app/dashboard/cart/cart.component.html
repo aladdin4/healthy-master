@@ -1,0 +1,119 @@
+<div class="content" style="margin-left: unset;">
+  <div class="px-4 px-lg-6 border-x border-300" style="padding-top: 2.2rem">
+    <div>
+      <div class="d-flex" style="align-items: center; justify-content: center;">
+      </div>
+      <div class="row g-3 justify-content-between align-items-end mb-4">
+        <div class="col-12 col-md-auto">
+          <div class="row g-2 gy-3">
+            <div class="col-auto flex-1 search-box">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="max-height: calc(100vh - 14.2rem); overflow: scroll ">
+        <h3 class="main-title" style="margin-bottom: 1rem !important">Cart</h3>
+        <div>
+
+          <div class="row g-5 " style="width: 95%; justify-content: space-between;">
+            <div class="col-12 col-lg-8">
+              <div id="cartTable" data-list="{&quot;valueNames&quot;:[&quot;products&quot;,&quot;color&quot;,&quot;size&quot;,&quot;price&quot;,&quot;quantity&quot;,&quot;total&quot;],&quot;page&quot;:10}">
+                <div class="table-responsive scrollbar mx-n1 px-1">
+                  <table class="table fs-9 mb-0 border-top border-translucent">
+                    <thead>
+                      <tr>
+                        <th class="sort white-space-nowrap align-middle fs-10" scope="col" style=" background: transparent;"></th>
+                        <th class="sort white-space-nowrap align-middle" scope="col" style="min-width: 250px; background: transparent;">PRODUCTS</th>
+                        <th class="sort align-middle" scope="col" style="min-width: 100px; background: transparent;">Category</th>
+                        <th class="sort align-middle" scope="col" style="min-width: 50px; background: transparent;">PRICE</th>
+                        <th class="sort align-middle" scope="col" style="min-width: 50px; background: transparent;">QUANTITY</th>
+                        <th class="sort align-middle" scope="col" style="min-width: 50px; background: transparent;">TOTAL</th>
+                        <th class="sort align-middle" scope="col" style="min-width: 50px; background: transparent;"></th>
+                      </tr>
+                    </thead>
+                    <tbody class="list" id="cart-table-body">
+                      <tr class="cart-table-row btn-reveal-trigger" *ngFor="let item of cartItems">
+                        <td class="align-middle white-space-nowrap py-0" style=" background: transparent;">
+                          <img src="{{ item.image }}" class="card-img-top" alt="{{ item.product_name }}" style=" height: 71px; width: 71px; padding: 0.5rem;">
+                        </td>
+                        <td class="align-middle white-space-nowrap py-0" style=" background: transparent; color: #0d6efd; text-decoration: underline">{{ item.product_name }}</td>
+                        <td class="size align-middle white-space-nowrap  fs-9 fw-semibold" style=" background: transparent;">{{ item.category }}</td>
+                        <td class="price align-middle text-body fs-9 fw-semibold" style=" background: transparent;">{{ item.price | currency }}</td>
+                        <td class="price align-middle text-body fs-9 fw-semibold" style=" background: transparent;">{{ item.quantity }}</td>
+                        <td class="total align-middle fw-bold text-body-highlight" style=" background: transparent;">{{ item.price * (item.quantity||0)  | currency }}</td>
+                        <td class="align-middle white-space-nowrap" style=" background: transparent;">
+                          <button class="btn btn-secondary-mod btn-icon fs--2 text-danger px-0" (click)="removeItem(item)">
+                            <svg width="16px" height="16px" class="svg-inline--fa fa-trash"
+                                 aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash" role="img"
+                                 viewBox="0 0 448 512">
+                              <path fill="currentColor"
+                                    d="M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM394.8 466.1C393.2 492.3 372.3 512 346.9 512H101.1C75.75 512 54.77 492.3 53.19 466.1L31.1 128H416L394.8 466.1z">
+                              </path>
+                            </svg>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-between-center mb-3">
+                    <h3 class="card-title mb-0">Summary</h3>
+                  </div><select class="form-select mb-3" aria-label="delivery type">
+                    <option value="cod">Cash on Delivery</option>
+                  </select>
+                  <div>
+                    <div class="container mt-4">
+                      <h2>Cart Summary</h2>
+                      <div class="d-flex justify-content-between">
+                        <p class="text-body fw-semibold">Items subtotal :</p>
+                        <p class="text-body-emphasis fw-semibold">{{ itemsSubtotal | currency }}</p>
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <p class="text-body fw-semibold">Discount :</p>
+                        <p class="text-danger fw-semibold">-{{ discount | currency }}</p>
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <p class="text-body fw-semibold">Tax :</p>
+                        <p class="text-body-emphasis fw-semibold">{{ tax | currency }}</p>
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <p class="text-body fw-semibold">Subtotal :</p>
+                        <p class="text-body-emphasis fw-semibold">{{ subtotal | currency }}</p>
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <p class="text-body fw-semibold">Shipping Cost :</p>
+                        <p class="text-body-emphasis fw-semibold">{{ shippingCost | currency }}</p>
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <p class="text-body fw-semibold">Total :</p>
+                        <p class="text-body-emphasis fw-semibold">{{ total | currency }}</p>
+                      </div>
+                      <div class="input-group mb-3"><input class="form-control" type="text" placeholder="Voucher"><button class="btn btn-phoenix-primary px-5">Apply</button></div>
+                      <div class="d-flex justify-content-between border-y border-dashed pt-3 mb-4">
+                        <h4 class="mb-0">Total :</h4>
+                        <h4 class="">{{ total | currency }}</h4>
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <p class="text-body fw-semibold">Delivery Address:</p>
+                        <p class="text-body-emphasis fw-semibold">23th Main Street, London</p>
+                      </div>
+                      <button class="btn btn-primary-mod w-100" *ngIf="currentUser.role" (click)="checkOut()">Proceed to check out</button>
+                      <a class="btn btn-primary-mod w-100" *ngIf="!currentUser.role" [routerLink]="['/login']" >Please sign in before Checking out</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

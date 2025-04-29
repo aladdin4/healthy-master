@@ -1,0 +1,142 @@
+<main class="main" id="top" #navbar>
+  <nav class="navbar navbar-top fixed-top navbar-expand" id="navbarDefault" style="border-right: 1px solid #cbd0dd;">
+    <div class="collapse navbar-collapse justify-content-between">
+
+      <div class="navbar-logo" style="display: flex">
+        <button class="btn navbar-toggler navbar-toggler-humburger-icon hover-bg-transparent" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse"
+                aria-expanded="false" aria-label="Toggle Navigation" >
+          <svg class="svg-inline--fa fa-grip-lines text-body fs-5 toggle-line" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="grip-lines" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 288C433.7 288 448 302.3 448 320C448 337.7 433.7 352 416 352H32C14.33 352 0 337.7 0 320C0 302.3 14.33 288 32 288H416zM416 160C433.7 160 448 174.3 448 192C448 209.7 433.7 224 416 224H32C14.33 224 0 209.7 0 192C0 174.3 14.33 160 32 160H416z"></path></svg>
+        </button>
+        <a class="navbar-brand me-1 me-sm-3" [routerLink]="['/dashboard/home']">
+          <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center">
+              <img src="assets/logo.png" alt="logo" width="200" />
+            </div>
+          </div>
+        </a>
+      </div>
+      <ul class="navbar-nav navbar-nav-icons flex-row">
+        <a style="width: 30px; margin-right: 1.25rem; color: rgb(82, 91, 117); display: flex;" [routerLink]="['/dashboard/cart']" *ngIf="user.role != 'admin' && cartItems != 0">
+          <span *ngIf="cartItems > 0s" class="icon-indicator-number" style="right: 104.5px; top: 7px; ">{{cartItems}}</span>
+          <svg class=" w-100 svg-inline--fa fa-cart-shopping" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cart-shopping" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path></svg>
+        </a>
+        <li class="nav-item dropdown">
+          <!--<a style="width: 30px; margin-right: 1.25rem; color: rgb(82, 91, 117)"[routerLink]="['/dashboard/plans']">
+      <span class="icon-indicator-number" style="right: 116.5px;">3</span>
+      <svg class="svg-inline--fa fa-utensils" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="utensils" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 0C400 0 288 32 288 176V288c0 35.3 28.7 64 64 64h32V480c0 17.7 14.3 32 32 32s32-14.3 32-32V352 240 32c0-17.7-14.3-32-32-32zM64 16C64 7.8 57.9 1 49.7 .1S34.2 4.6 32.4 12.5L2.1 148.8C.7 155.1 0 161.5 0 167.9c0 45.9 35.1 83.6 80 87.7V480c0 17.7 14.3 32 32 32s32-14.3 32-32V255.6c44.9-4.1 80-41.8 80-87.7c0-6.4-.7-12.8-2.1-19.1L191.6 12.5c-1.8-8-9.3-13.3-17.4-12.4S160 7.8 160 16V150.2c0 5.4-4.4 9.8-9.8 9.8c-5.1 0-9.3-3.9-9.8-9L127.9 14.6C127.2 6.3 120.3 0 112 0s-15.2 6.3-15.9 14.6L83.7 151c-.5 5.1-4.7 9-9.8 9c-5.4 0-9.8-4.4-9.8-9.8V16zm48.3 152l-.3 0-.3 0 .3-.7 .3 .7z"></path></svg>
+    </a>-->
+
+          <div class="avatar avatar-l fs-5 fw-bold setting-btn" (click)="togglePanel(userSignOut)" *ngIf="user.role">
+            {{user.initials}}
+          </div>
+          <div class="avatar avatar-l fs-5 fw-bold setting-btn" (click)="togglePanel(userSignOut)" *ngIf="!user.role">
+            GU
+          </div>
+          <div class="navbar-collapsed-container user d-none" (mouseleave)="hidePanel(userSignOut)" #userSignOut>
+            <ul class="navbar-nav flex-column navbar-collapsed-ul">
+              <h6 class="nav-menu-label fw-bold user-title" *ngIf="user.role">
+                {{user.fullName}}
+              </h6>
+              <h6 class="nav-menu-label fw-bold user-title" *ngIf="!user.role">
+                Guest
+              </h6>
+              <li class="settings-li px-3" [routerLink]="['/admin']" *ngIf="user.role == 'admin'">
+                <a class="nav-link" style="padding-left: 0px">
+                  <div style="display: flex; align-items: stretch;">
+                    <svg width="16px" height="16px"
+                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                         stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <a class="fw-bold" style="color: #141824; padding-left: 10px">Users</a>
+                  </div>
+                </a>
+              </li>
+              <div class="px-3 py-2" style="border-top: 1px solid #e3e6ed; " *ngIf="user.role">
+                <a class="btn btn-secondary-mod w-100" style="display: flex;justify-content: center; align-items: center;" (click)="logOut()">
+                  <svg width="16px" height="16px"
+                       viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                       stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out me-2">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                  </svg>Sign out
+                </a>
+              </div>
+              <div class="px-3 py-2" style="border-top: 1px solid #e3e6ed; " *ngIf="!user.role">
+                <a class="btn btn-secondary-mod w-100" style="display: flex;justify-content: center; align-items: center;" (click)="logOut()">
+                  <svg width="16px" height="16px"
+                       viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                       stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out me-2">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                  </svg>Sign In
+                </a>
+              </div>
+              <div class="px-3" style="border-top: 1px solid #e3e6ed; padding-top: 8px">
+                <span class="fw-bold" style="color: #141824; padding-left: 2px">V. 3.5.49</span>
+              </div>
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+ 
+    <nav class="navbar navbar-vertical navbar-expand-lg navbar-vertical-collapsed" *ngIf="showSidebar" >
+      <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+        <div class="navbar-vertical-content">
+          <!-- Side Menu Items Container -->
+          <ul class="navbar-nav flex-column" id="navbarVerticalNav">
+            <!-- Settings Section -->
+            <li class="nav-item">
+              <!-- parent pages-->
+              <div class="nav-item-wrapper">
+                <!--   -->
+                <a class="nav-link nav-link-header dropdown-indicator label-1" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="nv-home"routerLinkActive="active"[routerLink]="['/admin/sales']" >
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-icon">
+                      <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    </span><span class="nav-link-text nav-link-text-header">Sales Report</span>
+                  </div>
+                </a>
+                <a class="nav-link nav-link-header dropdown-indicator label-1" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="nv-home" routerLinkActive="active" [routerLink]="['/admin/users']">
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-icon">
+                      <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    </span><span class="nav-link-text nav-link-text-header">Users Management</span>
+                  </div>
+                </a>
+
+                <div class="parent-wrapper label-1 collapsed" #settingswrapper>
+                  <ul class="nav collapse parent show" data-bs-parent="#navbarVerticalCollapse" id="nv-home">
+                    <li class="nav-item">
+                      <a class="nav-link" data-bs-toggle="" aria-expanded="false" [routerLink]="['/settings/users-managment']"
+                         routerLinkActive="active">
+                        <div class="d-flex align-items-center">
+                          <span class="nav-link-text nav-item-text">Users Management</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+         </div>
+        
+      </nav>
+
+
+    </main>
+
+   
+
+  
+

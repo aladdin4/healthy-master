@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row flex-center min-vh-100">
+    <div class="col-sm-10 col-md-8 col-lg-5 col-xl-5 col-xxl-3">
+      <a class="d-flex flex-center text-decoration-none mb-4" [routerLink]="['/dashboard/home']">
+        <div class="d-flex align-items-center fw-bolder fs-5 d-inline-block">
+          <img src="assets/logo.png" alt="logo" width="240" style="margin-bottom: 1.5rem !important" />
+        </div>
+      </a>
+      <div class="text-center mb-7">
+        <h3 class="main-title" *ngIf="signIn">Sign In</h3>
+        <p class="sub-title" *ngIf="signIn">Get access to your account.</p>
+
+        <h3 class="main-title" *ngIf="!signIn">Sign Up</h3>
+        <p class="sub-title" *ngIf="!signIn">Create a new account.</p>
+      </div>
+      <form [formGroup]="logInForm">
+        <div class="mb-3 text-start">
+          <label class="form-label" for="email">Email address</label>
+          <div class="form-icon-container">
+            <input class="form-control form-icon-input" id="username" type="email" placeholder="name@example.com" formControlName="email" />
+            <span class=" icon form-icon">
+              <svg width="16px" height="16px" class="svg-inline--fa fa-user text-body fs-5" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg>
+            </span>
+            <mat-error *ngIf="logInForm.get('email')?.invalid &&logInForm.get('email')?.touched ">please use valid email</mat-error>
+          </div>
+        </div>
+        <div class="mb-3 text-start" *ngIf="!signIn">
+          <label class="form-label" for="firstName">First Name</label>
+          <div class="form-icon-container">
+            <input class="form-control form-icon-input" id="firstName" type="text" placeholder="First Name" formControlName="firstName" />
+            <span class="icon form-icon">
+              <svg width="16px" height="16px" class="svg-inline--fa fa-user text-body fs-5" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg>
+            </span>
+            <mat-error *ngIf="logInForm.get('firstName')?.invalid && logInForm.get('firstName')?.touched">please enter your first name</mat-error>
+          </div>
+        </div>
+        <div class="mb-3 text-start" *ngIf="!signIn">
+          <label class="form-label" for="lastName">Last Name</label>
+          <div class="form-icon-container">
+            <input class="form-control form-icon-input" id="lastName" type="text" placeholder="Last Name" formControlName="lastName" />
+            <span class="icon form-icon"> <svg width="16px" height="16px" class="svg-inline--fa fa-user text-body fs-5" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg> </span>
+            <mat-error *ngIf="logInForm.get('lastName')?.invalid && logInForm.get('lastName')?.touched">please enter your last name</mat-error>
+          </div>
+        </div>
+        <div class="mb-3 text-start" *ngIf="!signIn">
+          <label class="form-label" for="phoneNumber">Phone Number</label>
+          <div class="form-icon-container">
+            <input class="form-control form-icon-input" id="phoneNumber" type="text" placeholder="Last Name" formControlName="phoneNumber" />
+            <span class="icon form-icon"> <svg width="16px" height="16px" class="svg-inline--fa fa-user text-body fs-5" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg> </span>
+            <mat-error *ngIf="logInForm.get('phoneNumber')?.invalid && logInForm.get('phoneNumber')?.touched">please enter your last name</mat-error>
+          </div>
+        </div>
+        <div class="mb-3 text-start" *ngIf="!signIn">
+          <label class="form-label" for="Address">Address</label>
+          <div class="form-icon-container">
+            <input class="form-control form-icon-input" id="Address" type="text" placeholder="Last Name" formControlName="address" />
+            <span class="icon form-icon"> <svg width="16px" height="16px" class="svg-inline--fa fa-user text-body fs-5" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg> </span>
+            <mat-error *ngIf="logInForm.get('Address')?.invalid && logInForm.get('Address')?.touched">please enter your last name</mat-error>
+          </div>
+        </div>
+        <div class="mb-3 text-start" *ngIf="!signIn">
+          <label class="form-label" for="role">Preferences</label>
+          <div class="form-icon-container">
+            <input class="form-control form-icon-input" id="preferences" type="text" placeholder="Preferences" formControlName="preferences" />
+            <span class="icon form-icon"> <svg width="16px" height="16px" class="svg-inline--fa fa-user text-body fs-5" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path></svg> </span>
+            <mat-error *ngIf="logInForm.get('preferences')?.invalid && logInForm.get('preferences')?.touched">please enter your preferences</mat-error>
+          </div>
+        </div>
+        <div class="mb-3 text-start">
+          <label class="form-label" for="password">Password</label>
+          <div class="form-icon-container">
+            <input class="form-control form-icon-input" id="password" type="password" placeholder="Password" formControlName="password" /><span class="fas fa-key text-900 fs--1 form-icon"></span>
+            <span class=" icon form-icon">
+              <svg style="width: 15px; margin-top: 0.1rem;" class="svg-inline--fa fa-key text-body fs-5" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="key" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M282.3 343.7L248.1 376.1C244.5 381.5 238.4 384 232 384H192V424C192 437.3 181.3 448 168 448H128V488C128 501.3 117.3 512 104 512H24C10.75 512 0 501.3 0 488V408C0 401.6 2.529 395.5 7.029 391L168.3 229.7C162.9 212.8 160 194.7 160 176C160 78.8 238.8 0 336 0C433.2 0 512 78.8 512 176C512 273.2 433.2 352 336 352C317.3 352 299.2 349.1 282.3 343.7zM376 176C398.1 176 416 158.1 416 136C416 113.9 398.1 96 376 96C353.9 96 336 113.9 336 136C336 158.1 353.9 176 376 176z"></path></svg>
+            </span>
+            <mat-error *ngIf="logInForm.get('password')?.invalid && logInForm.get('password')?.touched "> please use valid password </mat-error>
+          </div>
+        </div>
+        <div class="mb-3 text-start" *ngIf="!signIn">
+          <label class="form-label" for="confirmPassword">Confirm Password</label>
+          <div class="form-icon-container">
+            <input class="form-control form-icon-input" id="confirmPassword" type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
+            <span class="icon form-icon"> <svg style="width: 15px; margin-top: 0.1rem;" class="svg-inline--fa fa-key text-body fs-5" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="key" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M282.3 343.7L248.1 376.1C244.5 381.5 238.4 384 232 384H192V424C192 437.3 181.3 448 168 448H128V488C128 501.3 117.3 512 104 512H24C10.75 512 0 501.3 0 488V408C0 401.6 2.529 395.5 7.029 391L168.3 229.7C162.9 212.8 160 194.7 160 176C160 78.8 238.8 0 336 0C433.2 0 512 78.8 512 176C512 273.2 433.2 352 336 352C317.3 352 299.2 349.1 282.3 343.7zM376 176C398.1 176 416 158.1 416 136C416 113.9 398.1 96 376 96C353.9 96 336 113.9 336 136C336 158.1 353.9 176 376 176z"></path></svg> </span>
+            <mat-error *ngIf="logInForm.get('confirmPassword')?.invalid && logInForm.get('confirmPassword')?.touched">please confirm your password</mat-error>
+          </div>
+        </div>
+
+        <button class="btn btn-primary w-100 mb-3 mt-4" [disabled]="loggingIn" type="submit" (click)="logIn()" *ngIf="signIn">Sign In</button>
+        <button class="btn btn-primary w-100 mb-3 mt-4" [disabled]="loggingIn" type="submit" (click)="signUp()" *ngIf="!signIn">Sign Up</button>
+
+        <div style="display: flex; justify-content: space-around;">
+          <span (click)="toggleSignIn()" *ngIf="signIn" style="color: #0d6efd; text-decoration: underline; cursor: pointer">If you don't have an account, Sign Up Instead</span>
+          <span (click)="toggleSignIn()" *ngIf="!signIn" style="color: #0d6efd; text-decoration: underline; cursor: pointer">If you do have an account, Sign In Instead</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

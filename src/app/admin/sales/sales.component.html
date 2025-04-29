@@ -1,0 +1,55 @@
+
+<div class="content navbarExpanded" style="overflow: hidden;">
+  <div class="pt-4 border-x border-300">
+
+    <div style="padding-left: 3rem; padding-right: 3rem;">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between;">
+        <h3 class="main-title">Sales Report</h3>
+        <div>
+
+        </div>
+      </div>
+    </div>
+    <div style="height: fit-content">
+      <div class="content" style="margin-left: unset;">
+        <div class="px-4  border-x border-300">
+          <div style="max-height: calc(100vh - 14.2rem); overflow: scroll ">
+            <div class="report">
+
+              <div *ngFor="let order of orders">
+                <div class="p-3 m-3 border" style="border-width: 2px !important; border-color: #cccfd1 !important; border-radius: 10px; margin-top: 0px !important;"  *ngIf="order.products.length > 0;">
+                    <span class="align-middle white-space-nowrap py-0 fw-bold fs-4" style=" background: transparent; color: #0d6efd; text-decoration: underline; display: inline-block; margin-bottom: 10px;">{{ order.order_date }}</span>
+                    <table class="table fs-9 mb-0 border-top border-translucent">
+                      <thead>
+                        <tr>
+                          <th class="sort white-space-nowrap align-middle" scope="col" style="min-width: 250px; background: transparent;">Product Name</th>
+                          <th class="sort align-middle" scope="col" style="min-width: 100px; background: transparent;">product nutrition info</th>
+                          <th class="sort align-middle" scope="col" style="min-width: 50px; background: transparent;">product ingredients</th>
+                          <th class="sort align-middle" scope="col" style="min-width: 50px; background: transparent;">Price</th>
+                          <th class="sort align-middle" scope="col" style="min-width: 50px; background: transparent;">Image</th>
+                        </tr>
+                      </thead>
+                      <tbody class="list" id="cart-table-body">
+                        <tr *ngFor="let product of order.products">
+                          <td class="size align-middle white-space-nowrap  fs-9 fw-semibold fw-bold text-body-highlight" style=" background: transparent;">{{ product.product_name }}</td>
+                          <td class="price align-middle text-body fs-9 fw-semibold" style=" background: transparent;">{{ product.product_nutrition_info }}</td>
+                          <td class="price align-middle text-body fs-9 fw-semibold" style=" background: transparent;">{{ product.product_ingredients }}</td>
+                          <td class="total align-middle  text-body fs-9 fw-semibold" style=" background: transparent;">{{ product.price }}</td>
+                          <td class="align-middle white-space-nowrap py-0" style=" background: transparent;">
+                            <img [src]="product.image" alt="{{ product.product_name }}" class="card-img-top" style=" height: 71px; width: 71px; padding: 0.5rem;">
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+            
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
